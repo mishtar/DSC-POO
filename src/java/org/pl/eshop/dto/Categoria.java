@@ -7,6 +7,7 @@ public class Categoria {
     private String descripcion;
 
     public Categoria() {
+        this.nombre = "";
     }
 
     public Categoria(Integer id, String nombre, String descripcion) {
@@ -20,6 +21,8 @@ public class Categoria {
     }
 
     public void setId(Integer id) {
+        if(id== null || id <= 0)
+            throw new IllegalArgumentException();
         this.id = id;
     }
 
@@ -28,6 +31,8 @@ public class Categoria {
     }
 
     public void setNombre(String nombre) {
+        if(nombre == null || nombre.isEmpty() || nombre.length() < 3)
+            throw new IllegalArgumentException();
         this.nombre = nombre;
     }
 
